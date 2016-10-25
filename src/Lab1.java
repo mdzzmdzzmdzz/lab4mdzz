@@ -20,24 +20,23 @@ import javax.imageio.stream.ImageInputStream;
 
 //import org.omg.CORBA.PUBLIC_MEMBER;
 
-/*
- 1.实现了小数的功能，但是小数一般不能作为幂运算的指数；
- 2.实现了幂运算的功能（不仅局限于变量，系数的次方也可以计算成十进制）；
- 3.数字于变量之间的*可以忽略不进行输入；
- 4.可以包含空格、tab等字符； 
- 5.多项式中的变量可以使用长度>1 的字符串表示； 
- 6.在出现“+”的位置，可以使用 “-”； 
- 测试用例：
+//1.实现了小数的功能，但是小数一般不能作为幂运算的指数；
+//2.实现了幂运算的功能（不仅局限于变量，系数的次方也可以计算成十进制）；
+// 3.数字于变量之间的*可以忽略不进行输入；
+// 4.可以包含空格、tab等字符； 
+// 5.多项式中的变量可以使用长度>1 的字符串表示； 
+// 6.在出现“+”的位置，可以使用 “-”； 
+// 测试用例：
 //2*x*z+3*x*z^3-z^2+2
 //!simplify x=2 
 //!d/dz
- */
+
 /**.
  * @author guoxin
  *
  */
 
-public class lab {
+public class Lab1 { 
   public static ArrayList<Double> xishu =  new ArrayList<Double>() ;
   public static ArrayList<String> bianliang = new ArrayList<String>();
   public static ArrayList<String> jiajian = new ArrayList<String>();
@@ -53,11 +52,11 @@ public class lab {
  * @param args main
  */
   public static void main(String[] args) {
-    String s0 = null;
-    Date d0 = new Date();
+    String ss0 = null;
+    Date dd0 = new Date();
     DateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");  
-    s0 = sdf.format(d0);  
-    System.out.println("当前时间为：" + s0); 
+    ss0 = sdf.format(dd0);  
+    System.out.println("当前时间为：" + ss0); 
     String duoxiangshi = "";
     String order1 = "";
     String order2 = "";
@@ -159,7 +158,7 @@ public class lab {
       while (m0.find()) { //index0++;
         index0 = s.indexOf(m0.group(),index0 + 1);
         if (index0 >= 1) {
-          if (s.charAt(index0 - 1) != '^' & s.charAt(index0 - 1) != '.') {
+          if (s.charAt(index0 - 1) != '^' && s.charAt(index0 - 1) != '.') {
             xishuf.add(m0.group());
           }
         } else {
@@ -264,7 +263,7 @@ public class lab {
       //index0++;
       index0 = str.indexOf(m0.group(),index0 + 1);
       if (index0 >= 1) {
-        if (str.charAt(index0 - 1) != '^' & str.charAt(index0 - 1) != '.') {
+        if (str.charAt(index0 - 1) != '^' && str.charAt(index0 - 1) != '.') {
           xishuf.add(m0.group());
         }
       } else {
@@ -336,7 +335,7 @@ public class lab {
   public static void output() {
     jiajian.add("");
     String temp2 = "";
-    for (int j = 0 ;j < bianliang2.size() & j < xishu2.size();j++ ) {
+    for (int j = 0 ;j < bianliang2.size() && j < xishu2.size();j++ ) {
       String temp1 = "";
       temp1 = xishu2.get(j) + bianliang2.get(j) + jiajian.get(j);
       temp2 = temp2 + temp1;
@@ -353,7 +352,7 @@ public class lab {
     String temp4 = "";
     String temp5 = "";
     jiajian.add("");
-    for (int j = 0 ;j < bianliang3.size() & j < xishu3.size();j++ ) {
+    for (int j = 0 ;j < bianliang3.size() && j < xishu3.size();j++ ) {
       int falg = 1;
       for (int i = 0;i < index.size();i++) {
         if (index.get(i) == j) {
@@ -416,7 +415,7 @@ public class lab {
         bianliangx.add(i, s2);
       }
     }
-    for (int j = 0 ;j < bianliangx.size() & j < xishu.size();j++ ) {
+    for (int j = 0 ;j < bianliangx.size() && j < xishu.size();j++ ) {
       String temp1 = "";
       temp1 = xishu.get(j) + "*" + bianliangx.get(j);
       String regx7 = "\\*{2}";
